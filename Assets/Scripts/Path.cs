@@ -76,4 +76,40 @@ public class Path
             }
         }
     }
+
+    public Vector3[] CalculateIntervals(float spacing, float resolution = 1)
+    {
+        List<Vector3> evenlySpacedPoints = new List<Vector3>();
+        evenlySpacedPoints.Add(points[0]);
+        Vector3 previousPoint = points[0];
+        float distanceSinceLastPoint = 0;
+
+        for (int segmentIndex = 0; segmentIndex < NumSegments; segmentIndex++)
+        {
+            Vector3[] p = GetPointsInSegment(segmentIndex);
+            float controlNetLength = Vector3.Distance(p[0], p[1]) + Vector3.Distance(p[1], p[2]) + Vector3.Distance(p[2], p[3]);
+            float estimatedCurveLength = Vector3.Distance(p[0], p[3]) + controlNetLength / 2f;
+            int divisions = Mathf.CeilToInt(estimatedCurveLength * resolution * 10);
+            float t = 0;
+            while (t <= 1)
+            {
+                t += 1f/divisions;
+                Vector3 pointOnCurve = Bezier.EvaluateCubic(p[0], p[1], p[2], p[3], t);
+                distanceSinceLastPoint += Vector3.Distance(previousPoint, pointOnCurve);
+
+                while (distanceSinceLastPoint >= spacing)
+                {
+                    float overshootDistance = distanceSinceLastPoint - spacing;
+                    Vector3 newSpacedPoint = pointOnCurve + (previousPoint - pointOnCurve).normalized * overshootDistance;
+                    evenlySpacedPoints.Add(newSpacedPoint);
+                    distanceSinceLastPoint = overshootDistance;
+                    previousPoint = newSpacedPoint;
+                }
+                
+                previousPoint = pointOnCurve;
+            }
+        }
+
+        return evenlySpacedPoints.ToArray();
+    }
 }

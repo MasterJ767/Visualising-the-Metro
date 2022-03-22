@@ -46,21 +46,21 @@ public class PathEditor : Editor
             Handles.color = Color.black;
             Handles.DrawLine(points[1], points[0]);
             Handles.DrawLine(points[2], points[3]);
-            Handles.DrawBezier(points[0], points[3], points[1], points[2], Color.green, null, 2);
+            Handles.DrawBezier(points[0], points[3], points[1], points[2], creator.segmentColour, null, 3);
         }
-        
+
         for (int i = 0; i < path.NumPoints; i++)
         {
             if (i % 3 == 0)
             {
-                Handles.color = Color.red;
+                Handles.color = creator.anchorColour;
             }
             else
             {
-                Handles.color = Color.white;
+                Handles.color = creator.controlColour;
             }
             
-            Vector3 newPosition = Handles.FreeMoveHandle(path[i], Quaternion.identity, 0.1f, Vector3.zero, Handles.SphereHandleCap);
+            Vector3 newPosition = Handles.FreeMoveHandle(path[i], Quaternion.identity, 1.5f, Vector3.zero, Handles.SphereHandleCap);
             if (path[i] != newPosition)
             {
                 Undo.RecordObject(creator, "Move Point");

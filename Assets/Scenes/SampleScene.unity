@@ -357,6 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1812691915}
   - component: {fileID: 1812691914}
+  - component: {fileID: 1812691916}
   m_Layer: 0
   m_Name: Track (South to North)
   m_TagString: Untagged
@@ -376,9 +377,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61110b8e8196c0a4a85f9a7553bd3885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anchorColour: {r: 1, g: 0, b: 0, a: 1}
+  controlColour: {r: 1, g: 1, b: 1, a: 1}
+  segmentColour: {r: 0, g: 1, b: 0, a: 1}
   path:
     points:
-    - {x: 945.34235, y: 55, z: -0.2672062}
+    - {x: 945.34235, y: 55, z: 0}
     - {x: 939.594, y: 55, z: 92.50017}
     - {x: 957.54736, y: 55, z: 203.70187}
     - {x: 959.1009, y: 55, z: 213.29106}
@@ -415,6 +419,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1812691916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1812691913}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18266ffc75bba3548ade1161cefe4749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pathColour: {r: 0, g: 0, b: 0, a: 1}
+  spacing: 0.1
+  resolution: 1
 --- !u!1 &1912119445
 GameObject:
   m_ObjectHideFlags: 0
