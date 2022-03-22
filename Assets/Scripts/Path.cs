@@ -7,7 +7,7 @@ using UnityEngine;
 public class Path
 {
     [SerializeField] 
-    private List<Vector3> points;
+    public List<Vector3> points;
 
     public Path(Vector3 centre)
     {
@@ -25,6 +25,11 @@ public class Path
     public int NumSegments => points.Count / 3;
 
     public Vector3 this[int index] => points[index];
+
+    public int NumPathPoints(float spacing, float resolution)
+    {
+        return CalculateIntervals(spacing, resolution).Length;
+    }
 
     public void AddSegment(Vector3 anchorPoint)
     {

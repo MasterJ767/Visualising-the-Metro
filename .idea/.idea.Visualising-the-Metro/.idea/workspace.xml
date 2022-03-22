@@ -5,8 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Visualising-the-Metro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Visualising-the-Metro/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Path.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Path.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PathCreator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PathCreator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PathEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PathEditor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PathPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PathPlacer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +62,7 @@
       <option name="presentableId" value="Default" />
       <updated>1647885906819</updated>
       <workItem from="1647885912501" duration="12000" />
-      <workItem from="1647947318526" duration="2321000" />
+      <workItem from="1647947318526" duration="7320000" />
     </task>
     <servers />
   </component>
