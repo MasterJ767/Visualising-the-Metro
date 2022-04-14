@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     public float speed = 24f;
     public Transform parent;
     public Transform train;
+    public Vector3 followOffset = new Vector3(-4, 7, -6);
 
     public Point[] points;
     
@@ -82,7 +83,7 @@ public class CameraController : MonoBehaviour
         else if (cameraMode == Mode.FOLLOW)
         {
             transform.parent.parent = train;
-            transform.parent.localPosition = new Vector3(-2, 5, -4);
+            transform.parent.localPosition = followOffset;
             transform.localRotation = Quaternion.Euler(15, 15, 0);
         }
     }
@@ -102,7 +103,7 @@ public class CameraController : MonoBehaviour
         else if (cameraMode == Mode.FOLLOW)
         {
             transform.parent.parent = train;
-            transform.parent.localPosition = new Vector3(-2, 5, -4);
+            transform.parent.localPosition = followOffset;
             transform.localRotation = Quaternion.Euler(15, 15, 0);
         }
     }
