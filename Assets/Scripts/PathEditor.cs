@@ -61,6 +61,13 @@ public class PathEditor : Editor
             }
             
             Vector3 newPosition = Handles.FreeMoveHandle(path[i], Quaternion.identity, 1.5f, Vector3.zero, Handles.SphereHandleCap);
+            
+            Event guiEvent = Event.current;
+            if (guiEvent.control)
+            {
+                newPosition.y = path[i].y;
+            }
+
             if (path[i] != newPosition)
             {
                 Undo.RecordObject(creator, "Move Point");

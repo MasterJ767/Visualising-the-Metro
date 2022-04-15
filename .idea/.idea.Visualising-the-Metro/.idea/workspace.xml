@@ -4,8 +4,9 @@
     <list default="true" id="3f8c0ac8-ed1f-4458-a7de-b5b1da690ebe" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Visualising-the-Metro/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Visualising-the-Metro/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PathEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PathEditor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PathObject.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PathObject.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PathPlacer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PathPlacer.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,6 +69,7 @@
       <workItem from="1648843334685" duration="57000" />
       <workItem from="1649850829109" duration="1788000" />
       <workItem from="1649944396123" duration="7274000" />
+      <workItem from="1650026580692" duration="2411000" />
     </task>
     <servers />
   </component>

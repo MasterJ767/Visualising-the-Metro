@@ -6,7 +6,7 @@ using UnityEngine;
 public class PathPlacer : MonoBehaviour
 {
     public Color pathColour = Color.black;
-    public float spacing = 0.1f;
+    public float spacing = 0.5f;
     public float resolution = 1;
     public float[] speeds;
 
