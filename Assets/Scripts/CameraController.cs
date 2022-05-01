@@ -11,6 +11,7 @@ public class CameraController : MonoBehaviour
     public float speed = 24f;
     public Transform parent;
     public Transform train;
+    public GameObject treeParent;
     public Vector3 followOffset = new Vector3(-4, 7, -6);
 
     public Point[] points;
@@ -52,6 +53,11 @@ public class CameraController : MonoBehaviour
         else if (cameraMode == Mode.STATIC)
         {
             ChangePoint();
+        }
+
+        if (Input.GetButtonDown("Toggle"))
+        {
+            treeParent.SetActive(!treeParent.activeSelf);
         }
     }
 
