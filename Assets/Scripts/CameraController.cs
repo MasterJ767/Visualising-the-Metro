@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     public float mouseSensitivity = 100f;
     public float speed = 24f;
     public Transform parent;
-    public Transform train;
+    public Transform[] trains;
     public GameObject treeParent;
     public Vector3 followOffset = new Vector3(-4, 7, -6);
 
@@ -22,6 +22,7 @@ public class CameraController : MonoBehaviour
     private Rigidbody rb;
 
     private int currentIndex;
+    private int currentTrainIndex;
 
     private void Start()
     {
@@ -53,6 +54,10 @@ public class CameraController : MonoBehaviour
         else if (cameraMode == Mode.STATIC)
         {
             ChangePoint();
+        }
+        else if (cameraMode == Mode.FOLLOW)
+        {
+            ChangeTrain();
         }
 
         if (Input.GetButtonDown("Toggle"))
@@ -88,7 +93,7 @@ public class CameraController : MonoBehaviour
         }
         else if (cameraMode == Mode.FOLLOW)
         {
-            transform.parent.parent = train;
+            transform.parent.parent = trains[currentTrainIndex];
             transform.parent.localPosition = followOffset;
             transform.localRotation = Quaternion.Euler(15, 15, 0);
         }
@@ -108,7 +113,7 @@ public class CameraController : MonoBehaviour
         }
         else if (cameraMode == Mode.FOLLOW)
         {
-            transform.parent.parent = train;
+            transform.parent.parent = trains[currentTrainIndex];
             transform.parent.localPosition = followOffset;
             transform.localRotation = Quaternion.Euler(15, 15, 0);
         }
@@ -164,6 +169,24 @@ public class CameraController : MonoBehaviour
             currentIndex = mod(currentIndex - 1, points.Length);
             transform.parent.position = points[currentIndex].position;
             transform.localRotation = Quaternion.Euler(points[currentIndex].rotation);
+        }
+    }
+
+    private void ChangeTrain()
+    {
+        if (Input.GetButtonDown("Fire2"))
+        {
+            currentTrainIndex = mod(currentTrainIndex + 1, trains.Length);
+            transform.parent.parent = trains[currentTrainIndex];
+            transform.parent.localPosition = followOffset;
+            transform.localRotation = Quaternion.Euler(15, 15, 0);
+        }
+        else if (Input.GetButtonDown("Fire1"))
+        {
+            currentTrainIndex = mod(currentTrainIndex - 1, trains.Length);
+            transform.parent.parent = trains[currentTrainIndex];
+            transform.parent.localPosition = followOffset;
+            transform.localRotation = Quaternion.Euler(15, 15, 0);
         }
     }
 }

@@ -11,12 +11,13 @@ public class PathObject : MonoBehaviour
     public PathPlacer placer;
     public bool reverseDirection;
     public float speed;
+    public float startDelay;
 
     float[] speeds;
     private int lastControlPointIndex = 0;
     private int speedIndex = 0;
     private int currentPathPointIndex = 0;
-    private bool waiting = false;
+    private bool waiting = true;
     private Quaternion defaultRot;
 
     private void Start()
@@ -34,6 +35,8 @@ public class PathObject : MonoBehaviour
         }
 
         defaultRot = transform.rotation;
+
+        StartCoroutine(Wait());
     }
 
     private void Update()
@@ -52,7 +55,7 @@ public class PathObject : MonoBehaviour
 
             if (currentPathPointIndex >= pathPoints.Length - 1)
             {
-                StartCoroutine(Wait());
+                //Reset();
             }
             else
             {
@@ -77,10 +80,8 @@ public class PathObject : MonoBehaviour
         }
     }
 
-    private IEnumerator Wait()
+    private void Reset()
     {
-        waiting = true;
-        yield return new WaitForSeconds(5);
         currentPathPointIndex = 0;
         lastControlPointIndex = 0;
         speedIndex = 0;
@@ -95,6 +96,15 @@ public class PathObject : MonoBehaviour
         {
             transform.position = route.path[0];
         }
+
+        waiting = true;
+        
+        StartCoroutine(Wait());
+    }
+
+    private IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(startDelay);
         waiting = false;
     }
 }
